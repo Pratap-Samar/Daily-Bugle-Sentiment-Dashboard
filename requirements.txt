@@ -1,0 +1,6 @@
+streamlit
+pandas
+praw
+nltk
+beautifulsoup4
+requests
