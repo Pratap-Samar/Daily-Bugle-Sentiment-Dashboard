@@ -106,6 +106,31 @@ def set_video_background(video_file):
             font-size: 1.2em;
             line-height: 1.5;
         }}
+                
+        /* --- GitHub Social Links --- */
+        .social-links {{
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }}
+        .social-links a {{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #CCCCCC;
+            font-weight: bold;
+            transition: color 0.3s;
+        }}
+        .social-links a:hover {{
+            color: #E62429; /* Spider-Man Red on hover */
+        }}
+        .social-links img {{
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
+        }}
+
         </style>
 
         <video autoplay muted loop id="bg-video">
@@ -143,7 +168,7 @@ if selected_arc != "-- Select an Arc to Analyze --":
     with col1:
         placeholder_image = "https://placehold.co/400x600/0a0a14/E62429?text=COVER+ART%0ANOT+AVAILABLE"
         image_to_display = arc_data['image_url'] if pd.notna(arc_data['image_url']) else placeholder_image
-        st.image(image_to_display, use_column_width=True)
+        st.image(image_to_display, use_container_width=True) # <-- FIX APPLIED
 
     with col2:
         st.header(f"{arc_data['Storyline']}")
@@ -151,8 +176,8 @@ if selected_arc != "-- Select an Arc to Analyze --":
         # Display details in styled "cards"
         st.markdown(f'<div class="detail-card"><strong>Publication Date:</strong> {arc_data["Publication_Date"]}</div>', unsafe_allow_html=True)
         st.markdown(f'<div class="detail-card"><strong>Issue(s):</strong> {arc_data["Issues"]}</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="detail-card"><strong>Writer(s):</strong> {arc_data["Writers"]}</div></div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="detail-card"><strong>Penciller(s):</strong> {arc_data["Pencillers"]}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="detail-card"><strong>Writer(s):</strong> {arc_data["Writers"]}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="detail-card"><strong>Penciller(s):</strong> {arc_data["Pencillers"]}</div>', unsafe_allow_html=True)
 
         # Synopsis (now in the right column)
         st.markdown("<h5>SYNOPSIS</h5>", unsafe_allow_html=True)
@@ -186,14 +211,31 @@ else:
     # --- Default Welcome View ---
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.image("default.jpg", use_column_width=True)
+        st.image("default.jpg", use_container_width=True) # <-- FIX APPLIED
     with col2:
         st.markdown("""
-        <div class="welcome-container">
-            <h2>Welcome to The Daily Bugle Report!</h2>
-            <p>Your source for public opinion on all things Spider-Man. This dashboard uses data science deliver the verdict on the web-slinger's most iconic comic moments.</p>
-            <p><strong>How it works:</strong> This project scrapes wiki to look for all iconic spiderman moments and then analyzes fan comments from reddit to calculate a sentiment score for each major story arc. It combines web scraping, natural language processing (NLP), and interactive data visualization to bring you the definitive fan perspective.</p>
-            <p><strong>To get started, select a story arc from the dropdown menu above.</strong></p>
-        </div>
-        """, unsafe_allow_html=True)
-
+<div class="welcome-container">
+    <h2>Welcome to The Daily Bugle Report!</h2>
+    <p><strong>An interactive data science project that quantifies fan sentiment across Spider-Man's most iconic comic book storylines.</strong></p>
+    <p>This dashboard goes beyond subjective reviews to deliver a data-driven verdict on the web-slinger's history. It employs a full data pipeline to automatically scrape, process, and analyze thousands of fan discussions, revealing the true consensus on celebrated sagas and controversial moments alike.</p>
+    <h4>Dashboard Features:</h4>
+    <ul>
+    <li><b>Explore Decades of History:</b> Navigate a comprehensive, scraped list of major story arcs, from the Silver Age to modern classics.</li>
+    <li><b>Access In-Depth Story Details:</b> Instantly view official synopses, creative teams, and publication data for every arc.</li>
+    <li><b>Discover the Fan-Approved Verdict:</b> See a quantitative sentiment score, calculated using Natural Language Processing on real-world fan comments.</li>
+    </ul>
+    <h4>Technology Spotlight:</h4>
+    <p>This project was built with <strong>Python</strong>, featuring a data pipeline powered by <strong>Pandas</strong>, <strong>Beautiful Soup</strong>, and <strong>PRAW</strong> (Reddit API). Sentiment analysis is handled by <strong>NLTK</strong>, and the interactive frontend is delivered by <strong>Streamlit</strong> with custom <strong>HTML/CSS</strong>.</p>
+    <p><strong>Ready to explore? Select a story arc from the dropdown menu above to begin.</strong></p>
+    <div class="social-links">
+      <a href="https://github.com/Pratap-Samar/Daily-Bugle-Sentiment-Dashboard" target="_blank">
+      <img src="https://raw.githubusercontent.com/Pratap-Samar/Daily-Bugle-Sentiment-Dashboard/main/github.png" alt="GitHub Logo">
+      View Repository
+      </a>
+      <a href="https://github.com/Pratap-Samar" target="_blank">
+      <img src="https://raw.githubusercontent.com/Pratap-Samar/Daily-Bugle-Sentiment-Dashboard/main/github.png" alt="GitHub Logo">
+      My Profile
+      </a>
+    </div>
+</div>
+""", unsafe_allow_html=True)
