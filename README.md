@@ -3,7 +3,7 @@
 ### [Live Demo Link](https://daily-bugle-sentiment-dashboard-ahjgl6kbfpxtexzshgwgag.streamlit.app/)
 
 
-This project is an interactive data science dashboard that scrapes, analyzes, and visualizes fan sentiment for iconic Spider-Man comic book storylines. It employs a full data pipeline to deliver a data-driven verdict on the web-slinger's most celebrated and controversial moments.
+Full Stack Data Science Project that scrapes, analyzes, and visualizes fan sentiment for iconic Spider-Man comic book storylines. It employs a full data pipeline to deliver a data-driven verdict on the web-slinger's most celebrated and controversial moments.
 
 
 
