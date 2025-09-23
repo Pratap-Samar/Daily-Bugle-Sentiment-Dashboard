@@ -163,12 +163,12 @@ with col2:
 if selected_arc != "-- Select an Arc to Analyze --":
     arc_data = df[df['Storyline'] == selected_arc].iloc[0]
 
-    col1, col2 = st.columns([1, 2]) # Ratio for a smaller image
+    col1, col2 = st.columns([1, 2]) 
 
     with col1:
         placeholder_image = "https://placehold.co/400x600/0a0a14/E62429?text=COVER+ART%0ANOT+AVAILABLE"
         image_to_display = arc_data['image_url'] if pd.notna(arc_data['image_url']) else placeholder_image
-        st.image(image_to_display, use_container_width=True) # <-- FIX APPLIED
+        st.image(image_to_display, use_container_width=True) 
 
     with col2:
         st.header(f"{arc_data['Storyline']}")
@@ -179,7 +179,7 @@ if selected_arc != "-- Select an Arc to Analyze --":
         st.markdown(f'<div class="detail-card"><strong>Writer(s):</strong> {arc_data["Writers"]}</div>', unsafe_allow_html=True)
         st.markdown(f'<div class="detail-card"><strong>Penciller(s):</strong> {arc_data["Pencillers"]}</div>', unsafe_allow_html=True)
 
-        # Synopsis (now in the right column)
+        # Synopsis 
         st.markdown("<h5>SYNOPSIS</h5>", unsafe_allow_html=True)
         st.markdown(f'<div class="content-box"><p>{arc_data["synopsis"]}</p></div>', unsafe_allow_html=True)
 
@@ -211,7 +211,7 @@ else:
     # --- Default Welcome View ---
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.image("default.jpg", use_container_width=True) # <-- FIX APPLIED
+        st.image("default.jpg", use_container_width=True) 
     with col2:
         st.markdown("""
 <div class="welcome-container">
